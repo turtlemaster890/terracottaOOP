@@ -3,4 +3,4 @@ No-compromises usability-focused text->df programming language. \
 
 See more info at https://owlfroggy.github.io/terracotta-docs/
 
-Now with OOP!
+Now with OOP?
