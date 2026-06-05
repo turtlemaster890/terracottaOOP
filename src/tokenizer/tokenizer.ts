@@ -833,7 +833,7 @@ export function Tokenize(script: string, mode: TokenizeMode): TokenizerResults |
             OfferContext(typeResults[0]+1,false)
             DiscardContextBranch(typeContext)
 
-            if (!ValueType[typeResults[1]]) { DiscardContextBranch(context); throw new TCError(`Invalid type '${typeResults[1]}', 0, index, typeResults[0]); } index = typeResults[0]
+            if (!ValueType[typeResults[1]]) { DiscardContextBranch(context); throw new TCError(`Invalid type '${typeResults[1]}'`, 0, index, typeResults[0]); } index = typeResults[0]
             type = typeResults[1]
         }
 
@@ -928,7 +928,7 @@ export function Tokenize(script: string, mode: TokenizeMode): TokenizerResults |
                 ) {
                     OfferContext(index+1)
                     DiscardContextBranch(context)
-                    throw new TCError(`Underscores are only allowed in numbers when seperating digits`, 1, index, index)
+                    throw new TCError('Underscores are only allowed in numbers when seperating digits', 1, index, index)
                 }
                 index++
                 continue
