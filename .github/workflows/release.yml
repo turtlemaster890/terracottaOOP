@@ -68,7 +68,7 @@ jobs:
 
       - name: Build
         run: |
-          deno compile --no-check --allow-read --allow-env --target ${{ matrix.target }} --output terracotta-${{ matrix.platform }}${{ matrix.suffix }} src/main.ts
+          deno compile --no-check --include src/data --allow-read --allow-env --target ${{ matrix.target }} --output terracotta-${{ matrix.platform }}${{ matrix.suffix }} src/main.ts
 
       - name: Gzip (Unix)
         if: runner.os != 'Windows'
