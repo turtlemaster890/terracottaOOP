@@ -1,11 +1,6 @@
 import * as fs from "node:fs/promises"
 import { fileURLToPath, URL } from "node:url";
 
-export let PATH_DELIMITER = process.platform == "win32" ? "\\" : "/"
-let splitDirName = import.meta.dirname?.split(PATH_DELIMITER)
-splitDirName?.pop()
-export let DATA_PATH = splitDirName?.join(PATH_DELIMITER)+`${PATH_DELIMITER}data${PATH_DELIMITER}`
-
 export async function getAllFilesInFolder(folderUrl: URL): Promise<string[]> {
     const files: string[] = []
     async function getFiles(path: URL) {
