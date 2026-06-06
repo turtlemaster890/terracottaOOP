@@ -1,13 +1,10 @@
-import * as fs from "node:fs/promises"
 import { ValueType, PLAYER_ONLY_GAME_VALUES } from "./constants.ts"
 import { Dict } from "./dict.ts"
-import { pathToFileURL } from "node:url";
-import { DATA_PATH } from "./utils.ts";
 import { print } from "../main.ts";
 
-const ACTION_DUMP_JSON      = JSON.parse((await fs.readFile( pathToFileURL(DATA_PATH+"actiondump.json") )).toString())
-const OVERRIDES_JSON        = JSON.parse((await fs.readFile( pathToFileURL(DATA_PATH+"overrides.json") )).toString())
-const ITEM_IDS_JSON         = JSON.parse((await fs.readFile( pathToFileURL(DATA_PATH+"item_ids.json") )).toString())
+const ACTION_DUMP_JSON      = JSON.parse(await Deno.readTextFile(new URL("../data/actiondump.json", import.meta.url)))
+const OVERRIDES_JSON        = JSON.parse(await Deno.readTextFile(new URL("../data/overrides.json", import.meta.url)))
+const ITEM_IDS_JSON         = JSON.parse(await Deno.readTextFile(new URL("../data/item_ids.json", import.meta.url)))
 
 export type DFRank = "Overlord" | "Mythic" | "Emperor" | "Noble" | ""
 export enum RANK_ORDER {
